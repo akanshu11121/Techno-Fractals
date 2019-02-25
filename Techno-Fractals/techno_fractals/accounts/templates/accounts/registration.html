@@ -1,0 +1,36 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block head_block %}
+
+<title>Registration</title>
+
+{% endblock %}
+
+
+{% block body_block %}
+{% if registered %}
+
+Alredy registered
+
+{% else %}
+
+<h1 class="ss">Register Here</h1>
+
+<br><br>
+
+<div class="container-fluid fb">
+
+    <form class="rf" enctype="multipart/format-data" method="POST"">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <br>
+        <input class="btn btn-primary" type="submit" value="Register">
+    </form>
+        
+
+</div>
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,61 @@
+.bl {
+    height: 180px;
+    width: 400px;
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid greenyellow;
+    float: left;
+    border-bottom-right-radius: 40px;
+}
+
+.btit {
+    text-align: center;
+    text-transform: capitalize;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+}
+
+.bw {
+    margin: 120px -100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    position: fixed;
+}
+
+#po {
+    font-size: 22px;
+}
+
+.bdw {
+    font-size: 22px;
+}
+
+.db {
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    margin: 10px;
+    color: indigo;
+}
+
+.bab {
+    background-color: darkslategray;
+  }
+
+  .blog_form_title{
+      background: slategray;
+      border-radius: 5px;
+      font-family: 'Times New Roman', Times, serif; 
+      font-size: 30px;
+      color: yellowgreen;
+      text-transform: capitalize;
+  }
+
+  .blog_form_text {
+      background: silver;
+      color: black;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 24px;
+      border-radius: 10px;
+  }

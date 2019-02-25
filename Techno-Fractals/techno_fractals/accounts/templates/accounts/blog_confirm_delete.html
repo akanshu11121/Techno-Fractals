@@ -1,0 +1,45 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block head_block %}
+
+<title>Delete Blog</title>
+
+{% endblock %}
+
+
+{% block body_block %}
+
+<h1 class="con ss">Delete Blog ...??</h1>
+
+
+<div class="container-fluid">
+
+
+    <div class="container-fluid fb">
+            
+
+    {% if user.is_authenticated %}
+
+    
+    <form method="post">
+      {% csrf_token %}
+      <p class="loader welcome delb">Are you sure you want to delete " {{ object|title }} " ?</p><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input class='btn btn-danger' type="submit" value="Confirm" />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a class='btn btn-warning' href="{% url 'accounts:blog_list' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    
+    </form>
+                
+
+   {% endif %}
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

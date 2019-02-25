@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'js/base.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    {% block head_block %}
+    
+    {% endblock %}
+</head>
+<body>
+
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse round sticky-top">
+
+            <a class="navbar-brand" href="{% url 'accounts:blog_list' %}">
+                <img class="rounded" src="{% static 'images/tf.jpg' %}" width="30" height="30" alt="Tf">
+            </a>
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand btn btn-secondary" id='tf' href="{% url 'accounts:blog_list' %}">TECHNO FRACTALS</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ">
+                <li class="nav-item active ">
+                    <a class="nav-link btn btn-danger" href="{% url 'accounts:about' %}">About Us <span class="sr-only">(current)</span></a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                    <a class="nav-link btn btn-warning" href="{% url 'admin:index' %}">Admin</a>
+                </li>
+                &nbsp;
+
+                {% if user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a class="nav-link btn bab" href="{% url 'accounts:blog_create' %}">Add Blog</a>
+                </li>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <li id="ut" class="nav-item">
+                    <span class="navbar-text ">&nbsp;&nbsp;Logged in as : {{ user.username|title }}</span>
+                </li>
+
+                <li class="nav-item navbar-toggler-right float-left">
+                    <a class="nav-link btn btn-danger" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'accounts:register' %}">Register</a>
+                </li>
+                &nbsp;
+
+                <li class="nav-item navbar-toggler-right">
+                    <a class="nav-link btn btn-success" href="{% url 'accounts:user_login' %}">Login</a>
+                </li>
+                {% endif %}
+
+                
+
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+
+
+
+    <div class="view">
+        <div class="plane main">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+
+        <section>
+            <div  id='left_side'>
+
+                <div class="container-fluid">
+                    <img  id="pic" src="{% static 'images/akanshu.jpg' %}" width="250px" height="250px" alt="akanshu">
+                </div>
+
+                <br><br>
+        
+
+                <div class="float-left"><a href="https://www.linkedin.com/in/akanshu-sonkar-187703127"><i style="font-size:24px" class="fa">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#xf0e1;&nbsp;&nbsp;</i></a></div>
+                <div class="float-left"><a href="https://github.com/akanshu11121"><i style="font-size:24px" class="fa">&nbsp;&nbsp;&nbsp;&nbsp;&#xf09b;&nbsp;&nbsp;&nbsp;&nbsp;</i></a></div>
+                <div class="float-left"><a href="https://www.instagram.com/ak__a.n.s.h.u/"><i style="font-size:24px" class="fa">&nbsp;&nbsp;&nbsp;&nbsp;&#xf16d;&nbsp;&nbsp;&nbsp;&nbsp;</i></a></div>
+                <div class="float-left"><a href="https://twitter.com/akanshu11121"><i style="font-size:24px" class="fa">&nbsp;&nbsp;&nbsp;&nbsp;&#xf099;&nbsp;&nbsp;&nbsp;&nbsp;</i></a></div>
+
+                
+                
+
+            <br><br><br>
+
+                <div class="container-fluid">
+
+                        <h1>
+                            <span href="" class="typewrite loader" data-period="2000" data-type='[ "Hi, I am Akanshu Sonkar and welcome to Techno Fractals.", "Techno Fractal is a blogging site that helps you to find your interest and enrich yourself with knowledge.","We here focus to share as much as possible , enabling you to grow your knowledge both vertically and horizontally.", "I am amazed by technologies : Artificial Intelligence, Machine Learning, Computer Vision, Decentralized Applications and Django are few of them." ]'>
+                                <span class="wrap"></span>
+                            </span>
+                        </h1>
+
+                </div>
+
+
+                <div class="container-fluid">
+
+                    {% if user.is_authenticated %}
+
+                    
+
+                    {% endif %}
+
+                </div>
+
+
+
+            </div>
+            
+            <article id='right_side'>
+                    <div class='container-fluid'>
+
+                        {% block body_block %}
+                
+                
+                        {% endblock %}
+                
+                    </div>
+             </article>
+        </section>
+
+    </div>
+
+    <div id="ac" class="container-fluid fixed-bottom">
+
+        <h1>
+            <span id='sec' class="typewrite" data-period="2000" data-type='[ "The sands of time slow for no man.","Be anything but not predictable.","If you are failing to prepare, you are preparing to fail.","The less you try to impress, the more impressive you are.","Without conflict there is no trust.","Honesty is natural human craving.","Learn the rules like a pro, so that you can break them like an artist.","It is a mark of an educated mind to entertain a thought without accepting it.","Certainity is the enemy of growth.","Your salary is the bribe they give you to forget your dreams." ]'>
+                <span class="wrap"></span>
+            </span>
+        </h1>
+
+    </div>
+
+       
+    
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+</body>
+</html>

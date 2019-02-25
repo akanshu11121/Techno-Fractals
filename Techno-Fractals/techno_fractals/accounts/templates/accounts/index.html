@@ -1,0 +1,33 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block head_block %}
+
+<title>Techno Fractals</title>
+
+{% endblock %}
+
+
+{% block body_block %}
+
+<h1 class="con ss">Hello Fractals ...!!</h1>
+
+
+<div class="container-fluid">
+
+
+    {% if user.is_authenticated %}
+
+            {% for blog in blog_list %}
+
+                <div class="container"> {{ blog.title }} </div>
+
+            {% endfor %}
+
+    {% endif %}
+
+
+</div>
+
+
+{% endblock %}

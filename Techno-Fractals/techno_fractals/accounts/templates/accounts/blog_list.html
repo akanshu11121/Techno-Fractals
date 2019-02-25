@@ -1,0 +1,93 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block head_block %}
+
+<title>Techno Fractals</title>
+
+
+{% endblock %}
+
+
+{% block body_block %}
+
+
+{% if user.is_authenticated %}
+<h1 class="con ss">Welcome {{ user.username|title }} ...!!</h1>
+{% else %}
+<h1 class="con ss">Hello Fractals ...!!</h1>
+{% endif %}
+<br><br>
+
+
+<div class="container-fluid">
+
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+
+            {% for blog in blog_list %}
+                    
+                <div class="container-fluid bl">
+                        
+                        <div class="container-fluid float-left">
+
+                            <a href="{% url 'accounts:blog_detail' pk=blog.pk %}"><span class="btit loader">{{ blog.title }}</span></a>
+
+                        </div>
+                        <div class="container-fluid">
+                            <span class="bw">by : {{ blog.writer|title }}</span>
+                        </div>
+                       
+                </div>    
+
+
+            {% endfor %}
+
+        {% else %}
+
+        <br>
+        
+           
+
+                    <div class="container-fluid fb">
+
+                        <h2 class="frac">Welcome Here</h2>
+
+                        <br><br>
+
+                        <p class="loader welcome">
+
+                            <span id="qt" ><strong> 
+                                    " It is said that in this world of chaos knowledge shows us the true path. "
+                                </strong></span>
+                            <br><br>
+
+                                And ..., what's better than learning by sharing. We here at <strong>Techno Fractals</strong>
+                                 provide you all a great platform to learn and grow through sharing.
+                                
+                                <br><br>
+
+                                I welcome you all to our convergence and look forward to a
+                                 beautiful and learning experience forever. May you cherish every 
+                                 moment of your reading always and create beautiful blogs.
+                            
+
+                        </p>
+
+                        <br><br>
+                        <h3 id="wtf">Please Login To Continue</h3>
+
+                    </div>
+        
+
+
+               
+
+
+    {% endif %}
+
+
+</div>
+
+
+{% endblock %}

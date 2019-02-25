@@ -1,0 +1,33 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block head_block %}
+
+<title>Login</title>
+
+{% endblock %}
+
+
+{% block body_block %}
+
+<h1 class="ss">Login Here</h1>
+
+<br><br>
+&nbsp;&nbsp;
+<span id="mes">{{ message }}</span>
+
+
+<div class="container-fluid form-group fb">
+
+        <form  class="form-contact" action="{% url 'accounts:user_login' %}" method="POST">
+            {% csrf_token %}
+            <label class="form-label" for="username">Username : &nbsp;</label>
+            <input class="for-control" type="text" placeholder="Enter your username" name="username" required><br><br>
+            <label for="password">Password : &nbsp;</label>
+            <input type="password" name="password" placeholder="Enter your password" required><br><br>
+            <input class="btn btn-success" type="submit" value="LOGIN">
+        </form>
+
+</div>
+   
+{% endblock %}

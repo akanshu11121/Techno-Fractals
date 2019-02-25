@@ -1,0 +1,36 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block head_block %}
+
+<title>Create Blog</title>
+
+{% endblock %}
+
+
+{% block body_block %}
+
+<h1 class="con ss">Create New Blog</h1>
+
+
+<br><br>
+
+<div class="container-fluid">
+
+
+        <div class="container-fluid fb">
+
+                <form method="POST" class="post-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="btn btn-primary" type="submit" value="Save">
+                </form>
+                    
+            
+            </div>
+
+
+</div>
+
+
+{% endblock %}

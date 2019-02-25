@@ -1,0 +1,68 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block head_block %}
+
+<title>{{ blog.title|title }}</title>
+
+{% endblock %}
+
+
+{% block body_block %}
+
+<h1 class="con ss">{{ blog.title|title }}</h1>
+
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="po">Published on : </span>
+<span id="mes">{{ blog.create_date|date:'l,d M Y - h:m a' }}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<span class="bdw">Written by : <span id="mes">{{ blog.writer|title }}</span></span>
+
+<div class="container-fluid">
+
+
+    <div class="container-fluid fb">
+
+        <div class="container-fluid">
+
+             <p class="loader welcome">{{ blog.text|capfirst }}</p>
+
+        </div>
+
+        
+    </div>
+
+    {% ifequal blog.writer|stringformat:"s" request.user.username %}
+
+    <div class="container-fluid">
+
+
+            <div>
+        
+                    <a class="btn btn-danger rounded db float-left" href="{% url 'accounts:blog_delete' pk=blog.pk %}">Delete</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-warning rounded db float-left" href="{% url 'accounts:blog_update' pk=blog.pk %}">Update</a>
+
+                   
+            </div>
+           
+            
+        
+    </div>
+
+    {% endifequal %}
+
+    <a class="btn btn-success rounded db float-right" href="{% url 'accounts:blog_list' %}">Back</a>
+
+
+</div>
+
+
+
+
+{% endblock %}
